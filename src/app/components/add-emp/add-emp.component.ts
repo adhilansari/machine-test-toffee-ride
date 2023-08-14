@@ -1,8 +1,8 @@
+import { DatePipe } from '@angular/common';
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HotToastService } from '@ngneat/hot-toast';
-import { IEmployee } from 'src/app/models/employee.interface';
 import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
@@ -14,12 +14,13 @@ export class AddEmpComponent {
   empForm!: FormGroup
   maxBirthDate!: string;
   destroyRef = inject(DestroyRef)
-  constructor(private empService: EmployeeService, private formBuilder: FormBuilder, private toast: HotToastService) { }
+  empService = inject(EmployeeService)
+  formBuilder = inject(FormBuilder)
+  toast = inject(HotToastService)
+  datePipe = inject(DatePipe)
+  constructor() { }
 
   ngOnInit() {
-    // let auxDate = this.empService.substractYearsToDate(new Date(), 17);
-    // this.maxBirthDate = this.empService.getDateFormateForSearch(auxDate);
-
     // Form group creation
     this.empForm = this.formBuilder.group({
       empFirstName: ['', [Validators.required]],
@@ -49,32 +50,28 @@ export class AddEmpComponent {
       this.toast.error('please fill required fields')
       return
     }
-
-    const formattedDate = this.empService.getDateFormateForSearch(this.empForm.value.empDateOfBirth)
-    console.log(formattedDate);
-
-
-    // this.empService.addEmployee(this.empForm.value).pipe(takeUntilDestroyed(this.destroyRef),
-    // this.toast.observe({
-    //   loading: 'Saving...',
-    //   success: 'Employee added successfully!',
-    //   error: 'Email or phoneNo already exist.. or internal error found!!'
-    // })).subscribe()
+    const formattedDOB = this.datePipe.transform(this.empForm.value.empDateOfBirth, 'dd-MM-yyyy');
+    const formattedDOJ = this.datePipe.transform(this.empForm.value.empDateOfJoining, 'dd-MM-yyyy');
 
 
+    this.empForm.patchValue({empDateOfBirth: formattedDOB})
+    this.empForm.patchValue({empDateOfJoining: formattedDOJ})
 
 
+    console.log(this.empForm.value);
 
+    this.empService.addEmployee(this.empForm.value).pipe(takeUntilDestroyed(this.destroyRef),
+    this.toast.observe({
+      loading: 'Saving...',
+      success: 'Employee added successfully!',
+      error: 'Email or phoneNo already exist.. or internal error found!!'
+    })).subscribe()
 
-
-    // this.empForm.reset()
+    this.empForm.reset()
   }
 
   get FC() {
     return this.empForm.controls;
   }
-
-
-
 }
 

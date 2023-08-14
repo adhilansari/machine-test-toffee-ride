@@ -11,8 +11,10 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
   styleUrls: ['./details-emp.component.scss']
 })
 export class DetailsEmpComponent {
-
-  constructor(private empService:EmployeeService,private route:ActivatedRoute , private router:Router){}
+  empService = inject(EmployeeService)
+  route = inject(ActivatedRoute)
+  router = inject(Router)
+  constructor( ){}
   empId!:string
   employeeData!: IEmployee;
   destroyRef=inject(DestroyRef);

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IEmployee } from 'src/app/models/employee.interface';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { HotToastService } from '@ngneat/hot-toast';
 
 
 @Component({
@@ -17,30 +18,31 @@ export class EditEmpComponent {
   empId!: string
   empData!: IEmployee
   destroyRef = inject(DestroyRef)
+  empService = inject(EmployeeService)
+  formBuilder = inject(FormBuilder)
+  router = inject(ActivatedRoute)
+  toast = inject(HotToastService)
   maxBirthDate!: string;
   defaultDateOfBirth!:any
-  constructor(private empService: EmployeeService, private formBuilder: FormBuilder, private router: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
-    let auxDate = this.empService.substractYearsToDate(new Date(), 17);
-    this.maxBirthDate = this.empService.getDateFormateForSearch(auxDate);
-
         // Form group creation
         this.empEditForm = this.formBuilder.group({
           empFirstName: ['', [Validators.required]],
           empLastName: ['', [Validators.required]],
           empGender: ['', [Validators.required]],
-          empDateOfBirth: ['', []],
-          empDateOfJoining: ['', []],
-          empPhoneNumber: ['', []],
-          empEmailId: ['', []],
-          empHomeAddrLine1: ['', []],
-          empHomeAddrLine2: ['', []],
-          empHomeAddrStreet: ['', []],
-          empHomeAddrDistrict: ['', []],
-          empHomeAddrState: ['', []],
-          empHomeAddrCountry: ['', []],
-          empHomeAddrPinCode: ['', []]
+          empDateOfBirth: ['',[Validators.required,Validators.pattern(/^\d{2}-\d{2}-\d{4}$/)]],
+          empDateOfJoining: ['',[Validators.required,Validators.pattern(/^\d{2}-\d{2}-\d{4}$/)]],
+          empPhoneNumber: ['', [Validators.required,Validators.pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)]],
+          empEmailId: ['', [Validators.required]],
+          empHomeAddrLine1: ['', [Validators.required]],
+          empHomeAddrLine2: ['', [Validators.required]],
+          empHomeAddrStreet: ['', [Validators.required]],
+          empHomeAddrDistrict: ['', [Validators.required]],
+          empHomeAddrState: ['', [Validators.required]],
+          empHomeAddrCountry: ['', [Validators.required]],
+          empHomeAddrPinCode: ['', [Validators.required]]
         });
 
     this.router.params.subscribe(res => {
@@ -49,14 +51,6 @@ export class EditEmpComponent {
 
     this.empService.getEmployeeById(this.empId).pipe(takeUntilDestroyed(this.destroyRef)).subscribe((res) => {
       this.empData = res
-
-      this.defaultDateOfBirth = this.empService.getDateFormateForSearch(new Date(this.empData.empDateOfBirth));
-      console.log(this.defaultDateOfBirth);
-      console.log(this.empData.empDateOfBirth);
-      console.log(new Date(new Date().toDateString()));
-
-
-
 
       this.empEditForm.setValue({
         empFirstName: this.empData.empFirstName,
@@ -74,16 +68,25 @@ export class EditEmpComponent {
         empHomeAddrCountry: this.empData.empHomeAddrCountry,
         empHomeAddrPinCode: this.empData.empHomeAddrPinCode
       })
-      console.log(this.empEditForm.value);
-
     })
 
 
   };
 
   update() {
+    if (this.empEditForm.invalid) {
+      console.log(this.empEditForm.valid);
+
+      this.empEditForm.markAllAsTouched()
+      this.toast.error('please fill required fields')
+      return
+    }
     const formData = this.empEditForm.value;
-    this.empService.updateEmployee(this.empId, formData).pipe(takeUntilDestroyed(this.destroyRef)).subscribe()
+    this.empService.updateEmployee(this.empId, formData).pipe(takeUntilDestroyed(this.destroyRef),
+    this.toast.observe({
+      loading: 'Saving...',
+      success: 'Employee Updated successfully!',
+    })).subscribe()
   }
 
   get FC() {

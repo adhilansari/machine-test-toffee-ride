@@ -4,7 +4,14 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        Poppins: ['Poppins', 'sans-serif'],
+        Bungee: ['Bungee', 'cursive']
+
+      }
+
+    },
   },
   plugins: [],
 }

@@ -1,15 +1,15 @@
-<div class="flex flex-col items-center justify-center h-full gap-2 p-2 overflow-y-auto bg-red-200 sm:flex-row"
+<div class="flex flex-col items-center justify-center h-full gap-2 p-2 overflow-y-auto lg:flex-row"
   *ngIf="employeeData">
   <div
-    class="flex flex-col bg-white text-center shadow-2xl items-center rounded-2xl py-2  justify-center p-2 w-full  h-[150px] sm:w-[470px]  sm:h-[500px]">
-    <img src="https://api.dicebear.com/6.x/initials/svg?seed={{employeeData.empFirstName}}" class="w-24 h-24 rounded-full hover:scale-105 sm:w-56 sm:h-56" alt="">
+    class="flex bg-white text-center shadow-xl items-center justify-around lg:flex-col lg:justify-center rounded-2xl py-4 px-2 w-full  h-[150px] lg:w-[270px]  lg:h-[500px]">
+    <img src="https://api.dicebear.com/6.x/initials/svg?&seed={{employeeData.empFirstName}}&backgroundColor=00897b,00acc1,039be5,1e88e5,3949ab,43a047,5e35b1,7cb342,8e24aa,c0ca33,d81b60,e53935,f4511e,fb8c00,fdd835,ffb300,ffd5dc,ffdfbf,transparent&backgroundType=gradientLinear,solid" class="w-24 h-24 rounded-full" alt="">
     <p class="mt-4 text-xl font-semibold"> ID : {{employeeData.id}}</p>
   </div>
   <div
-    class="p-3 bg-white flex flex-col overflow-y-auto shadow-2xl items-center rounded-lg justify-center w-full  h-[660px] sm:w-[970px]  sm:h-[500px]">
+    class="p-3 bg-white flex flex-col overflow-y-auto shadow-2xl items-center rounded-lg justify-center w-full  h-[660px] lg:w-[970px]  lg:h-[500px]">
 
     <div class="min-h-full text-gray-700">
-      <div class="grid text-lg h- md:grid-cols-2">
+      <div class="grid text-lg lg:grid-cols-2">
         <div class="grid h-20 grid-cols-3 overflow-auto border-b-2 place-items-start place-content-center ">
           <div class="px-4 py-2 font-semibold">First Name</div>
           <div class="col-span-2 px-4 py-2">{{employeeData.empFirstName}}</div>
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div
-        class="grid grid-cols-3 overflow-auto text-lg border-b-2 min-h-20 sm:h-20 place-items-start place-content-center">
+        class="grid grid-cols-3 overflow-auto text-lg border-b-2 min-h-20 lg:h-20 place-items-start place-content-center">
         <div class="px-4 py-2 font-semibold">Address</div>
         <div class="col-span-2 px-4 py-2">{{employeeData.empHomeAddrLine1}}, {{employeeData.empHomeAddrLine2}},
           {{employeeData.empHomeAddrStreet}}, {{employeeData.empHomeAddrDistrict}}, {{employeeData.empHomeAddrPinCode}},

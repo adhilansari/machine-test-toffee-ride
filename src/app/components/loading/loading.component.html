@@ -1,1 +1,5 @@
-<p>loading works!</p>
+<div class="fixed inset-0 z-50 flex items-center justify-center min-h-screen backdrop-blur-sm" *ngIf="isLoading|async">
+  <div
+    class="w-16 h-16 border-[8px] border-green-500 border-solid rounded-full shadow-md animate-spin border-t-transparent">
+  </div>
+</div>

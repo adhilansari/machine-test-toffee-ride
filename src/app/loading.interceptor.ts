@@ -1,18 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, delay, finalize } from 'rxjs';
+import { LoadingService } from './services/loading.service';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  loadingService=inject(LoadingService)
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request);
+    this.loadingService.show()
+    return next.handle(request).pipe(delay(400),finalize(()=>this.loadingService.hide()))
   }
 }

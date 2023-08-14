@@ -46,20 +46,4 @@ export class EmployeeService {
     return auxDate;
   }
 
-  // FORMAT DATE
-  getDateFormateForSearch(date: Date | string): string{
-    if (typeof date === 'string') {
-      date = new Date(date);
-  }
-
-  if (!(date instanceof Date) || isNaN(date.getTime())) {
-      throw new Error('Invalid date format');
-  }
-
-  let year = date.getFullYear();
-  let month = (date.getMonth() + 1).toString().padStart(2, '0');
-  let day = date.getDate().toString().padStart(2, '0');
-  return `${day}-${month}-${year}`;
-
-  }
 }

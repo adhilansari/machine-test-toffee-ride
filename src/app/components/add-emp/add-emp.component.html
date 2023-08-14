@@ -1,21 +1,13 @@
-<div class="flex flex-col items-center justify-center h-full gap-2 p-2 overflow-y-auto bg-red-200 sm:flex-row">
-  <!-- <div
-    class="flex flex-col bg-white text-center shadow-2xl items-center rounded-2xl py-2  justify-center p-2 w-full  h-[150px] sm:w-[470px]  sm:h-[650px]">
-    <img src="../../../assets/Profile Picture 1.png" class="w-24 h-24 hover:scale-105 sm:w-56 sm:h-56" alt="">
-    <button type="button"
-      class="text-white mt-2 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br  focus:outline-none rounded-lg text-sm px-5 py-2.5 text-center ">
-      Photo
-    </button>
-  </div> -->
+<div class="flex items-center justify-center h-full p-2 ">
   <div
-    class="p-3 bg-white flex flex-col overflow-y-auto shadow-2xl items-center rounded-lg justify-center w-full  h-[660px] sm:w-[970px]  sm:h-[650px]">
+    class="p-3 bg-white flex flex-col overflow-y-auto shadow-2xl items-center rounded-lg justify-center w-full  h-[660px] sm:w-4/5  sm:h-5/6">
 
-    <div class="min-h-full text-gray-700">
-      <form [formGroup]="empForm" class="grid text-lg h- md:grid-cols-2" (ngSubmit)="submit()">
+    <div class="w-full min-h-full text-gray-700 ">
+      <form [formGroup]="empForm" class="grid text-lg lg:grid-cols-2" (ngSubmit)="submit()">
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">First Name</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600 focus:outline-none"
             name="firstName" formControlName="empFirstName">
           <div class="w-full col-span-full " *ngIf="FC.empFirstName.errors && FC.empFirstName.touched ">
             <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empFirstName.errors?.required">
@@ -24,9 +16,9 @@
           </div>
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Last Name</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600 focus:outline-none"
             name="lastName" formControlName="empLastName">
           <div class="w-full col-span-full " *ngIf="FC.empLastName.errors && FC.empLastName.touched ">
             <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empLastName.errors?.required">
@@ -35,9 +27,9 @@
           </div>
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Contact No.</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600 focus:outline-none"
             name="phone" formControlName="empPhoneNumber">
           <div class="w-full col-span-full " *ngIf="FC.empPhoneNumber.errors && FC.empPhoneNumber.touched ">
             <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empPhoneNumber.errors?.required">
@@ -49,9 +41,9 @@
           </div>
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Email.</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600 focus:outline-none"
             name="email" formControlName="empEmailId">
           <div class="w-full col-span-full " *ngIf="FC.empEmailId.errors && FC.empEmailId.touched ">
             <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empEmailId.errors?.required">
@@ -63,40 +55,42 @@
           </div>
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Gender</label>
 
-          <div class="col-span-2 space-x-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600">
-            <label for="male">Male</label>
-            <input name="empGender" formControlName="empGender" type="radio" value="MALE">
-            <label for="femail">Female</label>
-            <input name="empGender" formControlName="empGender" type="radio" value="FEMALE">
-            <label for="other">Other</label>
-            <input name="empGender" formControlName="empGender" type="radio" value="OTHER">
-            <div class="w-full col-span-full " *ngIf="FC.empGender.errors && FC.empGender.touched ">
-              <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empGender.errors?.required">
-                should not be empty
-              </div>
+          <!-- <div class="col-span-2 space-x-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600"> -->
+          <select formControlName="empGender"
+            class="col-span-2 py-2 w-[180px] sm:w-full bg-white focus:outline-none px-4" name="gender">
+            <option value="">Please select</option>
+            <option value="FEMALE">Female</option>
+            <option value="MALE">Male</option>
+            <option value="OTHER">Other</option>
+          </select>
+          <div class="w-full col-span-full " *ngIf="FC.empGender.errors && FC.empGender.touched ">
+            <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empGender.errors?.required">
+              should not be empty
             </div>
           </div>
+          <!-- </div> -->
 
 
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Birthday</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] bg-white sm:w-full placeholder:text-slate-600 focus:outline-none"
             name="Birthday" formControlName="empDateOfBirth" type="date" min='1899-01-01' max='2004-01-31' required>
           <div class="w-full col-span-full " *ngIf="FC.empDateOfBirth.errors && FC.empDateOfBirth.touched ">
             <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empDateOfBirth.errors?.required">
               should not be empty
             </div>
+
           </div>
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Address Line 1</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600 focus:outline-none"
             name="addressLine1" formControlName="empHomeAddrLine1">
           <div class="w-full col-span-full " *ngIf="FC.empHomeAddrLine1.errors && FC.empHomeAddrLine1.touched ">
             <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empHomeAddrLine1.errors?.required">
@@ -105,9 +99,9 @@
           </div>
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Address Line 2</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600 focus:outline-none"
             name="addressLine2" formControlName="empHomeAddrLine2">
           <div class="w-full col-span-full " *ngIf="FC.empHomeAddrLine2.errors && FC.empHomeAddrLine2.touched ">
             <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empHomeAddrLine2.errors?.required">
@@ -116,9 +110,9 @@
           </div>
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Street</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600 focus:outline-none"
             name="street" formControlName="empHomeAddrStreet">
           <div class="w-full col-span-full " *ngIf="FC.empHomeAddrStreet.errors && FC.empHomeAddrStreet.touched ">
             <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empHomeAddrStreet.errors?.required">
@@ -127,9 +121,9 @@
           </div>
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">District</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600 focus:outline-none"
             name="district" formControlName="empHomeAddrDistrict">
           <div class="w-full col-span-full " *ngIf="FC.empHomeAddrDistrict.errors && FC.empHomeAddrDistrict.touched ">
             <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empHomeAddrDistrict.errors?.required">
@@ -138,9 +132,9 @@
           </div>
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Pin Code</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600 focus:outline-none"
             name="pinCode" formControlName="empHomeAddrPinCode">
           <div class="w-full col-span-full " *ngIf="FC.empHomeAddrPinCode.errors && FC.empHomeAddrPinCode.touched ">
             <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empHomeAddrPinCode.errors?.required">
@@ -149,9 +143,9 @@
           </div>
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">State</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600 focus:outline-none"
             name="state" formControlName="empHomeAddrState">
           <div class="w-full col-span-full " *ngIf="FC.empHomeAddrState.errors && FC.empHomeAddrState.touched ">
             <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empHomeAddrState.errors?.required">
@@ -160,9 +154,9 @@
           </div>
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Country</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600 focus:outline-none"
             name="country" formControlName="empHomeAddrCountry">
           <div class="w-full col-span-full " *ngIf="FC.empHomeAddrCountry.errors && FC.empHomeAddrCountry.touched ">
             <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empHomeAddrCountry.errors?.required">
@@ -171,17 +165,17 @@
           </div>
         </div>
         <div
-          class="grid h-24 grid-cols-3 overflow-auto border-b-2 sm:h-20 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
+          class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Joining Date</label>
-          <input class="col-span-2 px-4 py-2 w-[180px] lg:min-w-[290px] placeholder:text-slate-600 focus:outline-none"
+          <input class="col-span-2 px-4 py-2 w-[180px] sm:w-full bg-white placeholder:text-slate-600 focus:outline-none"
             name="joiningDate" type="date" formControlName="empDateOfJoining">
-            <div class="w-full col-span-full " *ngIf="FC.empDateOfJoining.errors && FC.empDateOfJoining.touched ">
-              <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empDateOfJoining.errors?.required">
-                should not be empty
-              </div>
+          <div class="w-full col-span-full " *ngIf="FC.empDateOfJoining.errors && FC.empDateOfJoining.touched ">
+            <div class="mr-8 text-sm text-red-600 text-end" *ngIf="FC.empDateOfJoining.errors?.required">
+              should not be empty
             </div>
+          </div>
         </div>
-        <div class="flex items-center justify-center gap-4 p-2 mt-2 font-semibold ">
+        <div class="grid grid-flow-col gap-4 p-2 mt-2 font-semibold lg:col-start-2 place-items-center place-content-center ">
           <button type="button" routerLink="/"
             class="text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:bg-gradient-to-br  focus:outline-none rounded-lg text-sm px-5 py-2.5 text-center  ">
             Back

@@ -9,8 +9,11 @@ import { EditEmpComponent } from './components/edit-emp/edit-emp.component';
 import { AddEmpComponent } from './components/add-emp/add-emp.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { DatePipe } from '@angular/common';
+import { SearchPipe } from './pipes/search.pipe';
+import { LoadingInterceptor } from './loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
     DetailsEmpComponent,
     EditEmpComponent,
     AddEmpComponent,
-    LoadingComponent
+    LoadingComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
     HttpClientModule,
     HotToastModule.forRoot()
   ],
-  providers: [],
+  providers: [DatePipe,{provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
