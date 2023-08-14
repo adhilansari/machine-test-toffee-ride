@@ -15,9 +15,15 @@
   'opsz' 48
 }
 
-// ::-webkit-scrollbar{
-//   background:none;
-//   width: 0;
-//   height: 0;
-// }
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+::-webkit-scrollbar{
+  background:none;
+  width: 0;
+  height: 0;
+}
 

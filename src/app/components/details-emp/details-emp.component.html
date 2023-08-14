@@ -1,12 +1,38 @@
 <div class="flex flex-col items-center justify-center h-full gap-2 p-2 overflow-y-auto lg:flex-row"
   *ngIf="employeeData">
+  <div class="fixed z-50 flex items-center justify-center w-3/4 p-6 h-2/4 lg:w-1/3 lg:h-1/4" *ngIf="delete">
+
+    <!-- Modal content -->
+    <div
+      class="relative flex flex-col items-center justify-center w-full h-full p-4 bg-white shadow-2xl rounded-2xl sm:p-5">
+      <button type="button" (click)="delete=!delete"
+        class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+      <span class="text-3xl text-gray-500 material-symbols-rounded" (click)="delete=!delete">delete</span>
+      <p class="mb-4 text-gray-500 ">Are you sure you want to delete?</p>
+      <div class="flex items-center justify-center space-x-4">
+        <button data-modal-toggle="deleteModal" type="button" (click)="delete=!delete"
+          class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 ">
+          No, cancel
+        </button>
+        <button type="submit" (click)="deleteEmp(employeeData.id!)"
+          class="px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 ">
+          Yes, I'm sure
+        </button>
+      </div>
+    </div>
+
+  </div>
   <div
-    class="flex bg-white text-center shadow-xl items-center justify-around lg:flex-col lg:justify-center rounded-2xl py-4 px-2 w-full  h-[150px] lg:w-[270px]  lg:h-[500px]">
-    <img src="https://api.dicebear.com/6.x/initials/svg?&seed={{employeeData.empFirstName}}&backgroundColor=00897b,00acc1,039be5,1e88e5,3949ab,43a047,5e35b1,7cb342,8e24aa,c0ca33,d81b60,e53935,f4511e,fb8c00,fdd835,ffb300,ffd5dc,ffdfbf,transparent&backgroundType=gradientLinear,solid" class="w-24 h-24 rounded-full" alt="">
+    class="flex bg-white text-center shadow-xl items-center justify-around lg:flex-col lg:justify-center rounded-2xl py-4 px-2 w-full  h-[150px] lg:w-[270px]  lg:h-[500px] {{delete ? 'backdrop:blur-3xl bg-slate-400/40':''}}">
+    <img
+      src="https://api.dicebear.com/6.x/initials/svg?&seed={{employeeData.empFirstName}}&backgroundColor=00897b,00acc1,039be5,1e88e5,3949ab,43a047,5e35b1,7cb342,8e24aa,c0ca33,d81b60,e53935,f4511e,fb8c00,fdd835,ffb300,ffd5dc,ffdfbf,transparent&backgroundType=gradientLinear,solid"
+      class="w-24 h-24 rounded-full" alt="">
     <p class="mt-4 text-xl font-semibold"> ID : {{employeeData.id}}</p>
   </div>
   <div
-    class="p-3 bg-white flex flex-col overflow-y-auto shadow-2xl items-center rounded-lg justify-center w-full  h-[660px] lg:w-[970px]  lg:h-[500px]">
+    class="p-3 bg-white flex flex-col overflow-y-auto shadow-2xl items-center rounded-lg justify-center w-full h-[660px] lg:w-[970px]  lg:h-[500px] {{delete ? 'backdrop:blur-3xl bg-slate-400/40':''}}">
 
     <div class="min-h-full text-gray-700">
       <div class="grid text-lg lg:grid-cols-2">
@@ -63,12 +89,14 @@
           class="text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:bg-gradient-to-br  focus:outline-none rounded-lg text-sm px-5 py-2.5 text-center ">
           Edit
         </button>
-        <button type="button" (click)="deleteEmp(employeeData.id!)"
+        <button type="button" (click)="delete=!delete"
           class="text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 hover:bg-gradient-to-br  focus:outline-none rounded-lg text-sm px-5 py-2.5 text-center ">
           Delete
         </button>
       </div>
     </div>
+
+
 
   </div>
 

@@ -9,17 +9,17 @@
     </button>
   </div>
   <div
-    class="flex flex-wrap items-center justify-center w-full h-full sm:h-[800px] gap-2 p-3 overflow-y-auto text-gray-700 sm:gap-3">
+    class="flex flex-wrap items-start justify-center w-full h-full sm:h-[800px] gap-2 p-3 overflow-y-auto text-gray-700 sm:gap-3">
     <div
-      class="flex flex-col space-y-5   bg-slate-50 shadow-[0_3px_10px_rgb(0,0,0,0.2)] hover:cursor-pointer text-center hover:shadow-2xl items-center rounded-2xl  justify-center p-2 w-[150px]  h-[200px] sm:w-[270px]  sm:h-[300px]"
+      class="flex flex-col space-y-5 bg-slate-50 shadow-[0_3px_10px_rgb(0,0,0,0.2)] hover:cursor-pointer text-center hover:shadow-2xl items-center rounded-2xl  justify-center p-2 w-[150px]  h-[200px] sm:w-[270px]  sm:h-[300px]"
       *ngFor="let employee of employees|search:searchKey" [routerLink]="['/emp/',employee.id]">
-      <div class="flex flex-col items-center justify-around w-full h-full shadow-inner sm:shadow-[inset_1px_1px_3px_3px_#00000025] sm:flex-row bg-slate-100/60 sm:h-28 rounded-2xl bg-slate-50">
+      <div
+        class="flex flex-col items-center justify-around w-full h-full shadow-inner sm:shadow-[inset_1px_1px_3px_3px_#00000025] sm:flex-row bg-slate-100/60 sm:h-28 rounded-2xl bg-slate-50">
         <img
-        src="https://api.dicebear.com/6.x/initials/svg?&seed={{employee.empFirstName}}&backgroundColor=00897b,00acc1,039be5,1e88e5,3949ab,43a047,5e35b1,7cb342,8e24aa,c0ca33,d81b60,e53935,f4511e,fb8c00,fdd835,ffb300,ffd5dc,ffdfbf,transparent&backgroundType=gradientLinear,solid"
-        class="w-20 h-20 rounded-full " alt="">
-      <p class="text-lg font-semibold"> ID : {{employee.id}}</p>
-      <p class="text-lg font-medium sm:hidden">{{employee.empFirstName}}</p>
-
+          src="https://api.dicebear.com/6.x/initials/svg?&seed={{employee.empFirstName}}&backgroundColor=00897b,00acc1,039be5,1e88e5,3949ab,43a047,5e35b1,7cb342,8e24aa,c0ca33,d81b60,e53935,f4511e,fb8c00,fdd835,ffb300,ffd5dc,ffdfbf,transparent&backgroundType=gradientLinear,solid"
+          class="w-20 h-20 rounded-full " alt="">
+        <p class="text-lg font-semibold"> ID : {{employee.id}}</p>
+        <p class="text-lg font-medium sm:hidden">{{employee.empFirstName}}</p>
       </div>
 
       <div class="flex-col hidden w-full gap-3 p-3 sm:flex rounded-2xl">
@@ -28,7 +28,7 @@
           <p>{{ employee.empFirstName}}</p>
         </div>
         <div class="flex gap-2">
-          <span class="material-symbols-rounded"> mail </span> :
+          <span class="truncate material-symbols-rounded"> mail </span> :
           <p>{{ employee.empEmailId }}</p>
         </div>
         <div class="flex gap-2">
@@ -36,8 +36,10 @@
           <p>{{ employee.empPhoneNumber }}</p>
         </div>
       </div>
+
     </div>
   </div>
+
   <button
     class="absolute flex items-center justify-center z-40 w-14 h-14 sm:w-16 sm:h-16 py-6 shadow-2xl shadow-black rounded-full bg-white/80 hover:bg-red-300 bottom-[2%] right-[3%]"
     routerLink="/add">

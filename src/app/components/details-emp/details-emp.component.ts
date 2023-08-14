@@ -16,6 +16,7 @@ export class DetailsEmpComponent {
   router = inject(Router)
   constructor( ){}
   empId!:string
+  delete:boolean = false
   employeeData!: IEmployee;
   destroyRef=inject(DestroyRef);
 
