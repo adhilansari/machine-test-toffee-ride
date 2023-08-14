@@ -1,4 +1,6 @@
 <div class="flex flex-col items-center justify-center w-full h-full ">
+
+  <!-- search input  -->
   <div class="relative my-2 text-gray-600">
     <input type="search" name="search" placeholder="Search" [(ngModel)]="searchKey"
       class="h-12 px-5 pr-10 text-sm bg-white rounded-2xl w-72 sm:w-full focus:outline-none">
@@ -8,6 +10,8 @@
       </span>
     </button>
   </div>
+
+  <!-- employee card  -->
   <div
     class="flex flex-wrap items-start justify-center w-full h-full sm:h-[800px] gap-2 p-3 overflow-y-auto text-gray-700 sm:gap-3">
     <div
@@ -40,6 +44,7 @@
     </div>
   </div>
 
+  <!-- add new employee  -->
   <button
     class="absolute flex items-center justify-center z-40 w-14 h-14 sm:w-16 sm:h-16 py-6 shadow-2xl shadow-black rounded-full bg-white/80 hover:bg-red-300 bottom-[2%] right-[3%]"
     routerLink="/add">

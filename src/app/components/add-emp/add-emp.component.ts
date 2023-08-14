@@ -53,12 +53,9 @@ export class AddEmpComponent {
     const formattedDOB = this.datePipe.transform(this.empForm.value.empDateOfBirth, 'dd-MM-yyyy');
     const formattedDOJ = this.datePipe.transform(this.empForm.value.empDateOfJoining, 'dd-MM-yyyy');
 
-
+    // FORMATTING DATE
     this.empForm.patchValue({empDateOfBirth: formattedDOB})
     this.empForm.patchValue({empDateOfJoining: formattedDOJ})
-
-
-    console.log(this.empForm.value);
 
     this.empService.addEmployee(this.empForm.value).pipe(takeUntilDestroyed(this.destroyRef),
     this.toast.observe({
@@ -66,7 +63,6 @@ export class AddEmpComponent {
       success: 'Employee added successfully!',
       error: 'Email or phoneNo already exist.. or internal error found!!'
     })).subscribe()
-
     this.empForm.reset()
   }
 

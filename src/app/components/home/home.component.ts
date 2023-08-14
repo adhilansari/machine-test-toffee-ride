@@ -18,8 +18,5 @@ export class HomeComponent {
     this.empService.getEmployees().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((res:IEmployee[]) => {
       this.employees = res
     })
-
   }
-
-
 }

@@ -1,9 +1,10 @@
 <div class="flex items-center justify-center h-full p-2 ">
   <div
     class="p-3 bg-white flex flex-col overflow-y-auto shadow-2xl items-center rounded-lg justify-center w-full  h-[660px] sm:w-4/5  sm:h-5/6">
-
+    <!-- employee form  -->
     <div class="w-full min-h-full text-gray-700 ">
       <form [formGroup]="empForm" class="grid text-lg lg:grid-cols-2" (ngSubmit)="submit()">
+        <!-- first Name  input-->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">First Name</label>
@@ -15,6 +16,7 @@
             </div>
           </div>
         </div>
+        <!-- last Name input-->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Last Name</label>
@@ -26,6 +28,7 @@
             </div>
           </div>
         </div>
+        <!-- phone no input  -->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Contact No.</label>
@@ -40,6 +43,7 @@
             </div>
           </div>
         </div>
+        <!-- email address input   -->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Email.</label>
@@ -54,11 +58,10 @@
             </div>
           </div>
         </div>
+        <!-- gender input  -->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Gender</label>
-
-          <!-- <div class="col-span-2 space-x-2 px-4 py-2 w-[180px] sm:w-full placeholder:text-slate-600"> -->
           <select formControlName="empGender"
             class="col-span-2 py-2 w-[180px] sm:w-full bg-white focus:outline-none px-4" name="gender">
             <option value="">Please select</option>
@@ -71,10 +74,8 @@
               should not be empty
             </div>
           </div>
-          <!-- </div> -->
-
-
         </div>
+        <!-- birthday input  -->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Birthday</label>
@@ -87,6 +88,7 @@
 
           </div>
         </div>
+        <!-- address line 1 input  -->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Address Line 1</label>
@@ -98,6 +100,7 @@
             </div>
           </div>
         </div>
+        <!-- address line 2 input  -->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Address Line 2</label>
@@ -109,6 +112,7 @@
             </div>
           </div>
         </div>
+        <!-- street input  -->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Street</label>
@@ -120,6 +124,7 @@
             </div>
           </div>
         </div>
+        <!-- district input  -->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">District</label>
@@ -131,6 +136,7 @@
             </div>
           </div>
         </div>
+        <!-- pin code input  -->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Pin Code</label>
@@ -142,6 +148,7 @@
             </div>
           </div>
         </div>
+        <!-- state input  -->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">State</label>
@@ -153,6 +160,7 @@
             </div>
           </div>
         </div>
+        <!-- country input  -->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Country</label>
@@ -164,6 +172,7 @@
             </div>
           </div>
         </div>
+        <!-- joining date input  -->
         <div
           class="grid h-24 grid-cols-3 px-2 overflow-auto border-b-2 bg-slate-100 place-items-center sm:place-items-start place-content-center ">
           <label class="px-2 py-2 font-semibold sm:px-3">Joining Date</label>
@@ -175,7 +184,9 @@
             </div>
           </div>
         </div>
-        <div class="grid grid-flow-col gap-4 p-2 mt-2 font-semibold lg:col-start-2 place-items-center place-content-center ">
+
+        <div
+          class="grid grid-flow-col gap-4 p-2 mt-2 font-semibold lg:col-start-2 place-items-center place-content-center ">
           <button type="button" routerLink="/"
             class="text-white bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:bg-gradient-to-br  focus:outline-none rounded-lg text-sm px-5 py-2.5 text-center  ">
             Back
